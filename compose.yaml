@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  gopacket-app:
+    container_name: gopacket-app
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: dev
+    tty: true
+    working_dir: /gopacket-app
+    volumes:
+      - ./gopacket-app:/gopacket-app
+      - ./pcapfiles:/pcapfiles
