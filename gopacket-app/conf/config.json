@@ -1,3 +1,4 @@
 {
-  "pcapFileName": "/pcapfiles/test.pcap"
+  "pcapFilePath": "/pcapfiles/test.pcap",
+  "deviceName": "en0"
 }

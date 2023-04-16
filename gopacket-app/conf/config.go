@@ -7,10 +7,11 @@ import (
 
 type Config struct {
 	PcapFilePath string `json:"pcapFilePath"`
+	DeviceName string `json:"deviceName"`
 }
 
 func ReadConfig() (*Config, error) {
-	const confFile = "config.json"
+	const confFile = "conf/config.json"
 
 	conf := new(Config)
 

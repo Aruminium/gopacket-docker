@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"main/conf"
 	"time"
 
 	"github.com/google/gopacket"
@@ -10,7 +11,7 @@ import (
 )
 
 var (
-	device      string = "eth0"
+	device      string = ""
 	snapshotLen int32  = 1024
 	promiscuous bool   = false
 	err         error
@@ -19,6 +20,13 @@ var (
 )
 
 func main() {
+	// Read Config
+	config, err := conf.ReadConfig()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	device = config.DeviceName
+
 	// Open device
 	handle, err = pcap.OpenLive(device, snapshotLen, promiscuous, timeout)
 	if err != nil {
